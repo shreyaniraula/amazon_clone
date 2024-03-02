@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const authRouter = require('./routes/auth.js');
+const authRouter = require('./routes/auth.routes.js');
 
 //init
 const PORT = 3000;
@@ -19,6 +19,6 @@ mongoose.connect(DB).then(()=>{
     console.log(e);
 });
 
-app.listen(PORT, ()=>{
+app.listen(PORT, "0.0.0.0", ()=>{
     console.log(`Connected to PORT ${PORT}`);
 });
