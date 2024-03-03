@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class GlobalVariables{
+class GlobalVariables {
   static const appBarGradient = LinearGradient(
     colors: [
       Color.fromARGB(255, 29, 201, 192),

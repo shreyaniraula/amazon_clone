@@ -1,6 +1,7 @@
 import 'package:amazon_clone/common/widgets/custom_button.dart';
 import 'package:amazon_clone/common/widgets/custom_textfield.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
+import 'package:amazon_clone/features/auth/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 enum Auth {
@@ -22,6 +23,7 @@ class _AuthScreenState extends State<AuthScreen> {
   final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
 
+  final AuthService authService = AuthService();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -32,6 +34,15 @@ class _AuthScreenState extends State<AuthScreen> {
     _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+  }
+
+  void signUpUser() {
+    authService.signUpUser(
+      context: context,
+      name: _nameController.text,
+      password: _passwordController.text,
+      email: _emailController.text,
+    );
   }
 
   @override
@@ -92,7 +103,11 @@ class _AuthScreenState extends State<AuthScreen> {
                         const SizedBox(height: 10),
                         CustomButton(
                           text: 'Sign Up',
-                          onTap: () {},
+                          onTap: () {
+                            if (_signUpFormKey.currentState!.validate()) {
+                              signUpUser();
+                            }
+                          },
                         ),
                       ],
                     ),
@@ -125,11 +140,6 @@ class _AuthScreenState extends State<AuthScreen> {
                     key: _signInFormKey,
                     child: Column(
                       children: [
-                        CustomTextField(
-                          controller: _nameController,
-                          hintText: 'Name',
-                        ),
-                        const SizedBox(height: 10),
                         CustomTextField(
                           controller: _emailController,
                           hintText: 'Email',

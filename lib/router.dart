@@ -13,7 +13,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const Scaffold(
-          body: const Text('Page not found.'),
+          body: Text('Page not found.'),
         ),
       );
   }
