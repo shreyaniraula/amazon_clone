@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const authRouter = require('./routes/auth.routes.js');
 
 //init
-const PORT = 8000;
+const PORT = 3000;
 const app = express();
 
 //middleware
