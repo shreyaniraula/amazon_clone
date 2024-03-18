@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const authRouter = require('./routes/auth.routes.js');
+const adminRouter = require('./routes/admin.routes.js');
 
 //init
 const PORT = 3000;
@@ -10,6 +11,7 @@ const app = express();
 //middleware
 app.use(express.json());
 app.use(authRouter);
+app.use(adminRouter)
 
 const DB = process.env.MONGODB_URI
 // connection
