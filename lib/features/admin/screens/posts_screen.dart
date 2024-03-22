@@ -5,7 +5,6 @@ import 'package:amazon_clone/features/admin/screens/add_product_screen.dart';
 import 'package:amazon_clone/features/admin/services/admin_services.dart';
 import 'package:amazon_clone/models/product.model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class PostsScreen extends StatefulWidget {
   const PostsScreen({super.key});

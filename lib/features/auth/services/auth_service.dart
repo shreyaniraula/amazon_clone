@@ -59,7 +59,10 @@ class AuthService {
     try {
       http.Response res = await http.post(
         Uri.parse('$uri/api/signin'),
-        body: jsonEncode({'email': email, 'password': password}),
+        body: jsonEncode({
+          'email': email,
+          'password': password,
+        }),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -71,7 +74,7 @@ class AuthService {
         onSuccess: () async {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
-          prefs.setString("x-auth-token", jsonDecode(res.body)['token']);
+          await prefs.setString("x-auth-token", jsonDecode(res.body)['token']);
           Navigator.of(context).pushNamedAndRemoveUntil(
             BottomBar.routeName,
             (route) => false,
