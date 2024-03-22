@@ -1,6 +1,6 @@
 const express = require("express");
 const auth = require("../middleware/auth.middleware");
-const Product = require("../models/product.model.js")
+const {Product} = require("../models/product.model.js")
 const productRouter = express.Router();
 
 productRouter.get('/api/products', auth, async (req, res) => {
@@ -68,7 +68,7 @@ productRouter.get('/api/deal-of-the-day', auth, async (req, res) => {
         });
 
         res.json(products[0]);
-        
+
     } catch (e) {
         res.status(500).json({ error: e.message });
     }

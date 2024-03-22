@@ -61,7 +61,7 @@ class SearchedProduct extends StatelessWidget {
                     width: 235,
                     padding: const EdgeInsets.only(left: 10),
                     child: const Text(
-                      'Eligible for FREE Shippint',
+                      'Eligible for FREE Shipping',
                     ),
                   ),
                   Container(
